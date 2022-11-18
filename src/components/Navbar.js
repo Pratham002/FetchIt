@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import Box from "@mui/material/Box"
 import BottomNavigation from "@mui/material/BottomNavigation"
 import BottomNavigationAction from "@mui/material/BottomNavigationAction"
@@ -24,7 +25,20 @@ const actionButtonStyles = {
 }
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    if (value === 0) {
+      navigate("/")
+    } else if (value === 1) {
+      navigate("/movies")
+    } else if (value === 2) {
+      navigate("/series")
+    } else if (value === 3) {
+      navigate("/search")
+    }
+  }, [value, navigate])
 
   const actionButtons = (label, icon) => {
     return (
