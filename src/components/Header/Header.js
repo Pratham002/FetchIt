@@ -1,7 +1,8 @@
 import React from "react"
+import "./Header.css"
 
 const Header = () => {
-  return <div>Header</div>
+  return <span className="header">Fetch It</span>
 }
 
 export default Header
